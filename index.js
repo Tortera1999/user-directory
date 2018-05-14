@@ -1,7 +1,8 @@
+console.clear();
 const b = document.querySelector('button');
 
 function changeTheText(){
-    let text = document.querySelector('h1');
+    const text = document.querySelector('.hi');
     text.textContent = 'yo!'
 }
 
