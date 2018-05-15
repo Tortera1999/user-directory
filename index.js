@@ -28,8 +28,9 @@ function changeTheText(ev){
     // }
 
     const text = document.querySelector('#users')
-    text.innerHTML += ("<p>" + inputtedText + "</p>")
+    text.innerHTML += ("<p>" + inputtedText + num + "</p>")
     document.getElementById("inputting").value = "";
+    document.getElementById("inputting2").value = "";
 }
 
 function clearText(ev){
