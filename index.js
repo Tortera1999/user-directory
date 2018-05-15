@@ -15,12 +15,6 @@ form.addEventListener('submit', handleSubmit)
 const clearList = document.querySelector('#b3')
 clearList.addEventListener('click', clearTheList)
 
-function clearTheList(){
-    (document.querySelector('#users')).remove()
-    form.userName.focus()
-}
-
-
 function renderList(){
     const userName = form.userName.value
     const age = form.age.value
@@ -44,16 +38,18 @@ function renderListItem(x){
     Y.textContent = x
     return Y;
 }
-
  
 function renderColorDiv(){
-    //const body = document.querySelector('body')
     const colorDiv = document.createElement('div')
     const favoriteColor = form.favoriteColor.value
     colorDiv.style.backgroundColor = favoriteColor
     colorDiv.style.width = '6rem'
     colorDiv.style.height = '3rem'
     colorDiv.style.marginLeft = '0%'
-    //body.style.color = favoriteColor
     return colorDiv
+}
+
+function clearTheList(){
+    (document.querySelector('#users')).remove()
+    form.userName.focus()
 }
