@@ -1,71 +1,58 @@
-console.clear();
-const form = document.querySelector('form')
-// const b1 = document.querySelector('#b1');
-const b2 = document.querySelector('#b2');
+const form = document.querySelector('form#userForm')
 
-function changeTheText(ev){
-    ev.preventDefault();
-    const inputtedText = document.getElementById("inputting").value;
-    const num = document.getElementById("inputting2").value;
-    // if(num == "1"){
-    //     const text = document.querySelector('.hi1');
-    //     text.textContent = "1- " + inputtedText;
-    // } else if(num == "2"){
-    //     const text = document.querySelector('.hi2');
-    //     text.textContent = "2- " + inputtedText;
-    // } else if(num == "3"){
-    //     console.log(num);
-    //     const text = document.querySelector('.hi3');
-    //     text.textContent = "3- " + inputtedText;
-    // } else if(num == "4"){
-    //     const text = document.querySelector('.hi4');
-    //     text.textContent = "4- " + inputtedText;
-    // }else if(num == "5"){
-    //     const text = document.querySelector('.hi5');  
-    //     text.textContent = "5- " + inputtedText; 
-    // } else{
-    //     window.alert("Invalid number!");
-    // }
+const handleSubmit = function(ev) {
+  ev.preventDefault()
 
-    const text = document.querySelector('#users')
-    const age = form.querySelector("#age").value
-    const color = form.querySelector("#color").value
+  const users = document.querySelector('#users')
+  users.appendChild(renderList())
+
+  form.reset()
+  form.userName.focus()
+}
+
+form.addEventListener('submit', handleSubmit)
+
+const clearList = document.querySelector('#b3')
+clearList.addEventListener('click', clearTheList)
+
+function clearTheList(){
+    (document.querySelector('#users')).remove()
+}
+
+
+function renderList(){
+    const userName = form.userName.value
+    const age = form.age.value
+
     const list = document.createElement('ul')
-    const nameItem = document.createElement('li');
-    nameItem.style.color = color
-    nameItem.textContent = `Name: ${inputtedText}`
+
+    const nameItem = renderListItem(`Name: ${userName}`)
+    const ageItem = renderListItem(`Age: ${age}`)
+    const colorItem = renderListItem('Favorite Color: ')
+    colorItem.appendChild(renderColorDiv())
+  
     list.appendChild(nameItem)
-
-    const ageItem = document.createElement('li');
-    ageItem.style.color = color
-    ageItem.textContent = `Age: ${age}`
     list.appendChild(ageItem)
+    list.appendChild(colorItem)
 
-    const colorItem = document.createElement('li');
-    const colorDiv = document.createElement('div');
-    colorItem.style.color = color;
-    colorDiv.style.backgroundColor = color
+    return list
+}
+
+function renderListItem(x){
+    const Y = document.createElement('li')
+    Y.textContent = x
+    return Y;
+}
+
+ 
+function renderColorDiv(){
+    //const body = document.querySelector('body')
+    const colorDiv = document.createElement('div')
+    const favoriteColor = form.favoriteColor.value
+    colorDiv.style.backgroundColor = favoriteColor
     colorDiv.style.width = '6rem'
     colorDiv.style.height = '3rem'
-    colorItem.appendChild(colorDiv)
-    list.appendChild(colorItem)
-    // p.style.color = color
-    // p.textContent = inputtedText + "," + age.value
-    // //text.innerHTML += (`<p> {inputtedText}, {t.value}</p>`)
-    text.appendChild(list)
-    
-    document.getElementById("inputting").value = "";
-    document.getElementById("inputting2").value = "";
-    form.reset()
-    document.getElementById("inputting").focus();
+    colorDiv.style.marginLeft = '0%'
+    //body.style.color = favoriteColor
+    return colorDiv
 }
-
-function clearText(ev){
-    document.getElementById("inputting").value = "";
-    document.getElementById("inputting2").value = "";
-}
-
-// b1.addEventListener('click', changeTheText);
-b2.addEventListener('click', clearText);
-form.addEventListener('submit', changeTheText)
-
