@@ -40,6 +40,15 @@ function changeTheText(ev){
     ageItem.style.color = color
     ageItem.textContent = `Age: ${age}`
     list.appendChild(ageItem)
+
+    const colorItem = document.createElement('li');
+    const colorDiv = document.createElement('div');
+    colorItem.style.color = color;
+    colorDiv.style.backgroundColor = color
+    colorDiv.style.width = '6rem'
+    colorDiv.style.height = '3rem'
+    colorItem.appendChild(colorDiv)
+    list.appendChild(colorItem)
     // p.style.color = color
     // p.textContent = inputtedText + "," + age.value
     // //text.innerHTML += (`<p> {inputtedText}, {t.value}</p>`)
