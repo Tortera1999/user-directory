@@ -1,8 +1,10 @@
 console.clear();
-const b1 = document.querySelector('#b1');
+const form = document.querySelector('form')
+// const b1 = document.querySelector('#b1');
 const b2 = document.querySelector('#b2');
 
-function changeTheText(){
+function changeTheText(ev){
+    ev.preventDefault();
     const inputtedText = document.getElementById("inputting").value;
     const num = document.getElementById("inputting2").value;
     if(num == "1"){
@@ -26,11 +28,12 @@ function changeTheText(){
     }
 }
 
-function clearText(){
+function clearText(ev){
     document.getElementById("inputting").value = "";
     document.getElementById("inputting2").value = "";
 }
 
-b1.addEventListener('click', changeTheText);
+// b1.addEventListener('click', changeTheText);
 b2.addEventListener('click', clearText);
+form.addEventListener('submit', changeTheText)
 
