@@ -28,13 +28,23 @@ function changeTheText(ev){
     // }
 
     const text = document.querySelector('#users')
-    const age = form.querySelector("#age")
+    const age = form.querySelector("#age").value
     const color = form.querySelector("#color").value
-    const p = document.createElement('p')
-    p.style.color = color
-    p.textContent = inputtedText + "," + age.value
-    //text.innerHTML += (`<p> {inputtedText}, {t.value}</p>`)
-    text.appendChild(p)
+    const list = document.createElement('ul')
+    const nameItem = document.createElement('li');
+    nameItem.style.color = color
+    nameItem.textContent = `Name: ${inputtedText}`
+    list.appendChild(nameItem)
+
+    const ageItem = document.createElement('li');
+    ageItem.style.color = color
+    ageItem.textContent = `Age: ${age}`
+    list.appendChild(ageItem)
+    // p.style.color = color
+    // p.textContent = inputtedText + "," + age.value
+    // //text.innerHTML += (`<p> {inputtedText}, {t.value}</p>`)
+    text.appendChild(list)
+    
     document.getElementById("inputting").value = "";
     document.getElementById("inputting2").value = "";
     form.reset()
