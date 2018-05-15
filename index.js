@@ -28,9 +28,15 @@ function changeTheText(ev){
     // }
 
     const text = document.querySelector('#users')
-    text.innerHTML += ("<p>" + inputtedText + num + "</p>")
+    const t = form.querySelector("#age")
+    const p = document.createElement('p')
+    p.textContent = inputtedText + "," + t.value
+    //text.innerHTML += (`<p> {inputtedText}, {t.value}</p>`)
+    text.appendChild(p)
     document.getElementById("inputting").value = "";
     document.getElementById("inputting2").value = "";
+    form.reset()
+    document.getElementById("inputting").focus();
 }
 
 function clearText(ev){
