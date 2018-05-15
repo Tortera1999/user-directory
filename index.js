@@ -17,6 +17,7 @@ clearList.addEventListener('click', clearTheList)
 
 function clearTheList(){
     (document.querySelector('#users')).remove()
+    form.userName.focus()
 }
 
 
