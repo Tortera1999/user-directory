@@ -28,9 +28,11 @@ function changeTheText(ev){
     // }
 
     const text = document.querySelector('#users')
-    const t = form.querySelector("#age")
+    const age = form.querySelector("#age")
+    const color = form.querySelector("#color").value
     const p = document.createElement('p')
-    p.textContent = inputtedText + "," + t.value
+    p.style.color = color
+    p.textContent = inputtedText + "," + age.value
     //text.innerHTML += (`<p> {inputtedText}, {t.value}</p>`)
     text.appendChild(p)
     document.getElementById("inputting").value = "";
