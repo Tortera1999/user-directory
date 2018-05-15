@@ -28,7 +28,7 @@ function changeTheText(ev){
     // }
 
     const text = document.querySelector('#users')
-    text.textContent += (" " + inputtedText)
+    text.innerHTML += ("<p>" + inputtedText + "</p>")
     document.getElementById("inputting").value = "";
 }
 
