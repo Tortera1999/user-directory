@@ -24,7 +24,7 @@ const clearList = document.querySelector('#b3')
 clearList.addEventListener('click', clearTheList)
 
 function renderList(data){
-    const list = document.createElement('ul')
+    const list = document.createElement('dl')
     Object.keys(data).forEach(function(label){
         list.appendChild(renderListItem(label, data[label]))
       })
@@ -33,12 +33,16 @@ function renderList(data){
 
 function renderListItem(label, value) {
     const item = document.createElement('li')
-    item.textContent = `${label}: `
+    const term = document.createElement('dt')
+    term.textContent = label
+    const description =  document.createElement('dd')
     try {
-      item.appendChild(value)
+      description.appendChild(value)
     } catch(e) {
-      item.textContent += value
+      description.textContent += value
     }
+    item.appendChild(term)
+    item.appendChild(description)
     return item
 }
  
