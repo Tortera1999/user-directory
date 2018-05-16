@@ -1,19 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
 body{
-    font-family: sans-serif;
+    font-family: Dosis, sans-serif;
     background-color: chartreuse;
 }
 
+main{
+    display: flex;
+    justify-content: space-around;
+}
+
 #userForm{
-    margin-left: 27%;
-    margin-top: 5%;
+    padding: 1rem;
+    background-color: lightslategrey;
+    border: 1px solid black;
 }
 
 #users{
     font-size: 150%;
-}
-
-div{
-    margin-left: 40%
 }
 
 #l1{
