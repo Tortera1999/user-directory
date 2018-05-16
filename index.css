@@ -16,6 +16,19 @@ main{
     border: 1px solid black;
 }
 
+dl{
+    padding: 1rem;
+}
+
+dl li{
+    list-style: none;
+    margin-top: 1rem;
+}
+
+/* dl :nth-of-type(even){
+    background-color: aqua
+} */
+
 #users{
     font-size: 150%;
 }
