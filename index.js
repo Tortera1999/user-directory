@@ -3,17 +3,20 @@ const form = document.querySelector('form#userForm')
 const handleSubmit = function(ev) {
     ev.preventDefault()
   const form = ev.target
-  const userName = form.userName.value
-  const age = form.age.value
-  const favoriteColor = renderColor(form.favoriteColor.value)
+
+  const user = {
+      'Name': form.userName.value,
+      'Age': form.age.value,
+      'Favorite Color': renderColor(form.favoriteColor.value),
+  }
 
   const users = document.querySelector('#users')
 
   const list = document.createElement('ul')
 
-  list.appendChild(renderListItem('Name', userName))
-  list.appendChild(renderListItem('Age', age))
-  list.appendChild(renderListItem('Favorite Color', favoriteColor))
+  Object.keys(user).forEach(function(label){
+    list.appendChild(renderListItem(label, user[label]))
+  })
 
   users.appendChild(list)
 
@@ -25,23 +28,6 @@ form.addEventListener('submit', handleSubmit)
 
 const clearList = document.querySelector('#b3')
 clearList.addEventListener('click', clearTheList)
-
-// function renderList(){
-//     const userName = form.userName.value
-//     const age = form.age.value
-
-//     const list = document.createElement('ul')
-
-//     const colorItem = document.createElement('li')
-//     colorItem.appendChild(renderColorDiv())
-
-//     list.appendChild(renderListItem('Name', userName))
-//     list.appendChild(renderListItem('Age', age))
-//     list.appendChild(renderListItem('Favorite Color', colorItem))
-
-//     return list
-// }
-
 
 function renderListItem(label, value) {
     const item = document.createElement('li')
